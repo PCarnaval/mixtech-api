@@ -24,12 +24,14 @@ func CreateOpening(ctx *gin.Context) {
 		Name:    request.Name,
 		Email:   request.Email,
 		Salary:  request.Salary,
-		remote:  *request.Remote,
+		Remote:  *request.Remote,
 	}
 
-	if err := db.Create(&request).Error; err != nil {
+	if err := db.Create(&opening).Error; err != nil {
 		logger.Error("error creating opening: %v", err.Error())
 		sendError(ctx, http.StatusInternalServerError, "error creating opening on database")
 		return
 	}
+
+	sendSuccess(ctx, "create-opening", opening)
 }
