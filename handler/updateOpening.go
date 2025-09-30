@@ -7,5 +7,13 @@ import (
 )
 
 func UpdateOpening(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{"message": "PUT Opening"})
+	request := UpdateOpeningRequest{}
+
+	ctx.BindJSON(&request)
+
+	if err := request.Validate(); err != nil {
+		logger.Error("validation error: %v", err.Error())
+		sendError(ctx, http.StatusBadRequest, err.Error())
+		return
+	}
 }

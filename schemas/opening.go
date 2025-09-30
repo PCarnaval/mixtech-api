@@ -13,7 +13,7 @@ type Opening struct {
 	Company string
 	Email   string
 	Salary  int64
-	remote  bool
+	Remote  bool
 }
 
 type OpeningResponse struct {
@@ -26,5 +26,5 @@ type OpeningResponse struct {
 	Company   string    `json:"company"`
 	Email     string    `json:"email"`
 	Salary    int64     `json:"salary"`
-	remote    *bool     `json:"remote"`
+	Remote    bool      `json:"remote"`
 }
