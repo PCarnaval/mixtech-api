@@ -21,10 +21,10 @@ type OpeningResponse struct {
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 	DeletedAt time.Time `json:"deletedAt,omitempty"`
-	Role      string    `json:""`
-	Name      string    `json:""`
-	Company   string    `json:""`
-	Email     string    `json:""`
-	Salary    int64     `json:""`
-	remote    bool      `json:""`
+	Role      string    `json:"role"`
+	Name      string    `json:"name"`
+	Company   string    `json:"company"`
+	Email     string    `json:"email"`
+	Salary    int64     `json:"salary"`
+	remote    *bool     `json:"remote"`
 }
