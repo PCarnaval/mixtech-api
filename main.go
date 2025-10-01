@@ -1,8 +1,12 @@
 package main
 
 import (
+	"log"
+
 	"github.com/PCarnaval/mixtech-api/config"
-	"github.com/PCarnaval/mixtech-api/middleware/hashBased"
+	"github.com/joho/godotenv"
+
+	//	"github.com/PCarnaval/mixtech-api/middleware/""
 	"github.com/PCarnaval/mixtech-api/router"
 )
 
@@ -11,6 +15,11 @@ var (
 )
 
 func main() {
+
+	if err := godotenv.Load(".env"); err != nil {
+		log.Println("⚠️  .env não encontrado, usando variáveis do sistema")
+	}
+
 	logger = config.GetLogger("main")
 
 	err := config.Init()
@@ -19,7 +28,6 @@ func main() {
 		return
 	}
 
-	hashBased.InitHMAC()
 	router.InitializeRouter()
 
 }
