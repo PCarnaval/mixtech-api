@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/PCarnaval/mixtech-api/config"
+	"github.com/PCarnaval/mixtech-api/middleware/hashBased"
 	"github.com/PCarnaval/mixtech-api/router"
 )
 
@@ -18,6 +19,7 @@ func main() {
 		return
 	}
 
+	hashBased.InitHMAC()
 	router.InitializeRouter()
 
 }
