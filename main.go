@@ -16,7 +16,7 @@ var (
 
 func main() {
 
-	if err := godotenv.Load(); err != nil {
+	if err := godotenv.Load(); err == nil {
 		log.Println("⚠️  .env não encontrado, usando variáveis do sistema")
 	}
 
